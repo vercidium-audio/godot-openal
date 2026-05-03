@@ -118,7 +118,7 @@ public unsafe partial class ALManager : Node
     public float MasterVolume
     {
         get => _masterVolume;
-        set => UpdateProperty(ref _masterVolume, value, SetListenerGain);
+        set => UpdateProperty(ref _masterVolume, MathF.Max(0, value), SetListenerGain);
     }
 
     [Export]
@@ -139,42 +139,42 @@ public unsafe partial class ALManager : Node
     public float MetersPerUnit
     {
         get => _metersPerUnit;
-        set => UpdateProperty(ref _metersPerUnit, value, SetMetersPerUnit);
+        set => UpdateProperty(ref _metersPerUnit, MathF.Max(0, value), SetMetersPerUnit);
     }
 
     [Export]
     public float SpeedOfSound
     {
         get => _speedOfSound;
-        set => UpdateProperty(ref _speedOfSound, value, SetSpeedOfSound);
+        set => UpdateProperty(ref _speedOfSound, MathF.Max(0, value), SetSpeedOfSound);
     }
 
     [Export]
     public int MaximumMonoSources
     {
         get => _maximumMonoSources;
-        set => UpdateProperty(ref _maximumMonoSources, value, (v) => CantChangeAtRuntime("MaximumMonoSources", _maximumMonoSources, v));
+        set => UpdateProperty(ref _maximumMonoSources, Math.Max(0, value), (v) => CantChangeAtRuntime("MaximumMonoSources", _maximumMonoSources, v));
     }
 
     [Export]
     public int MaximumStereoSources
     {
         get => _maximumStereoSources;
-        set => UpdateProperty(ref _maximumStereoSources, value, (v) => CantChangeAtRuntime("MaximumStereoSources", _maximumStereoSources, v));
+        set => UpdateProperty(ref _maximumStereoSources, Math.Max(0, value), (v) => CantChangeAtRuntime("MaximumStereoSources", _maximumStereoSources, v));
     }
 
     [Export]
-    public int MaximumAuxiliarySources
+    public int MaximumAuxiliarySends
     {
         get => _maximumAuxiliarySends;
-        set => UpdateProperty(ref _maximumAuxiliarySends, value, (v) => CantChangeAtRuntime("MaximumAuxiliarySends", _maximumAuxiliarySends, v));
+        set => UpdateProperty(ref _maximumAuxiliarySends, Math.Max(0, value), (v) => CantChangeAtRuntime("MaximumAuxiliarySends", _maximumAuxiliarySends, v));
     }
 
     [Export]
     public int SampleRate
     {
         get => _sampleRate;
-        set => UpdateProperty(ref _sampleRate, value, SetSampleRate);
+        set => UpdateProperty(ref _sampleRate, Math.Max(0, value), SetSampleRate);
     }
 
     [Export]
@@ -188,7 +188,7 @@ public unsafe partial class ALManager : Node
     public int MicrophoneThreshold
     {
         get => _microphoneThreshold;
-        set => UpdateProperty(ref _microphoneThreshold, value);
+        set => UpdateProperty(ref _microphoneThreshold, Math.Max(0, value));
     }
 
     string _outputDeviceName;

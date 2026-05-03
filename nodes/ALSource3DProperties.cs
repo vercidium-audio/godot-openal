@@ -26,28 +26,28 @@ public partial class ALSource3D : Node3D
     public float Volume
     {
         get => _volume;
-        set => UpdateProperty(ref _volume, value, (v, source) => source.SetGain(v));
+        set => UpdateProperty(ref _volume, MathF.Max(0, value), (v, source) => source.SetGain(v));
     }
 
     [Export(PropertyHint.Range, "0.0,10.0")]
     public float Pitch
     {
         get => _pitch;
-        set => UpdateProperty(ref _pitch, value, (v, source) => source.SetPitch(v));
+        set => UpdateProperty(ref _pitch, MathF.Max(0, value), (v, source) => source.SetPitch(v));
     }
 
     [Export]
     public float MaxDistance
     {
         get => _maxDistance;
-        set => UpdateProperty(ref _maxDistance, value, (v, source) => source.SetMaxDistance(v));
+        set => UpdateProperty(ref _maxDistance, MathF.Max(0, value), (v, source) => source.SetMaxDistance(v));
     }
 
     [Export]
     public float ReferenceDistance
     {
         get => _referenceDistance;
-        set => UpdateProperty(ref _referenceDistance, value, (v, source) => source.SetReferenceDistance(v));
+        set => UpdateProperty(ref _referenceDistance, MathF.Max(0, value), (v, source) => source.SetReferenceDistance(v));
     }
 
     [Export]

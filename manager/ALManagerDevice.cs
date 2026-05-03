@@ -24,7 +24,7 @@ public unsafe partial class ALManager
             HRTFEnabled = HRTFEnabled,
             HRTFID = 0,
             SampleRate = SampleRate,
-            MaximumAuxiliarySends = MaximumAuxiliarySources,
+            MaximumAuxiliarySends = MaximumAuxiliarySends,
             MaximumMonoSources = MaximumMonoSources,
             MaximumStereoSources = MaximumStereoSources,
             LogFunction = GD.PushWarning,
