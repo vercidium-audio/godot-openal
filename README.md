@@ -29,7 +29,7 @@ If you get the below error, make sure you've created a C# solution first (step 2
 
 After creating a C# project, disable and enable the `godot-openal` plugin in `Project > Project Settings > Plugins` to perform setup.
 
-#### 3. Automatic Dependency Setup
+### 3. Automatic Dependency Setup
 
 The plugin setup script in `addons/godot-openal/plugin.gd` will perform some setup logic for you.
 
