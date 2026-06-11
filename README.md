@@ -54,7 +54,7 @@ First, it will add this text to your project's `.csproj` file:
 
 Second, it will copy `soft_oal.dll` or `libopenal.so.1` (depending on your operating system) to your project root, which is where your project searches for `.dll` files when it runs.
 
-### 24. Customise the ALManager
+### 4. Customise the ALManager
 
 The `addons/godot0openal/autoload/ALManagerAutoload.tscn` scene contains the global `ALManager` node.
 
@@ -66,7 +66,7 @@ This `ALManager` node overrides Godot's inbuilt audio system, and has settings f
 
 To verify your installation worked, the Output Device Name field should be populated in the inspector.
 
-### 2. Play a Sound
+### 5. Play a Sound
 
 Create an `ALSource3D` node and set its `Sound Name` to the path of the sound in the `res://audio` folder. To play the sound, invoke `.Play()` on the node via GDScript or C#.
 
