@@ -22,6 +22,7 @@ public partial class ALSource3D : Node3D
         }
     }
 
+    /// <summary>The volume of the sound</summary>
     [Export(PropertyHint.Range, "0.0,10.0")]
     public float Volume
     {
@@ -29,6 +30,7 @@ public partial class ALSource3D : Node3D
         set => UpdateProperty(ref _volume, MathF.Max(0, value), (v, source) => source.SetGain(v));
     }
 
+    /// <summary>The pitch of the sound</summary>
     [Export(PropertyHint.Range, "0.0,10.0")]
     public float Pitch
     {
@@ -36,6 +38,7 @@ public partial class ALSource3D : Node3D
         set => UpdateProperty(ref _pitch, MathF.Max(0, value), (v, source) => source.SetPitch(v));
     }
 
+    /// <summary>The max distance that the sound can be heard at. Also affected by the falloff model in <see cref="ALManager"/></summary>
     [Export]
     public float MaxDistance
     {
@@ -43,6 +46,7 @@ public partial class ALSource3D : Node3D
         set => UpdateProperty(ref _maxDistance, MathF.Max(0, value), (v, source) => source.SetMaxDistance(v));
     }
 
+    /// <summary>The distance that sound volume falloff starts at</summary>
     [Export]
     public float ReferenceDistance
     {
@@ -50,6 +54,7 @@ public partial class ALSource3D : Node3D
         set => UpdateProperty(ref _referenceDistance, MathF.Max(0, value), (v, source) => source.SetReferenceDistance(v));
     }
 
+    /// <summary>Whether the sound plays indefinitely on loop</summary>
     [Export]
     public bool Looping
     {
@@ -57,6 +62,7 @@ public partial class ALSource3D : Node3D
         set => UpdateProperty(ref _looping, value, (v, source) => source.SetLooping(v));
     }
 
+    /// <summary>Whether the sound is spatialised or relative to the listener. Set to true for music, ambience and sounds your own character makes.</summary>
     [Export]
     public bool Relative
     {
@@ -64,6 +70,7 @@ public partial class ALSource3D : Node3D
         set => UpdateProperty(ref _relative, value, (v, source) => source.SetRelative(v));
     }
 
+    /// <summary>The name of the sound loaded from res://audio folder. To use a different folder, set the `audio/openal_sound_folder.custom` setting in Project Settings</summary>
     [Export]
     public string SoundName
     {
