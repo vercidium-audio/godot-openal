@@ -11,7 +11,6 @@ public partial class ALSource3D : Node3D
     public static ALFilter silenceFilter = new(0, 0);
     public static ALFilter fullFilter = new(1, 1);
 
-
     public void UpdateFilter(float gain, float gainHF, bool fullReverb = false)
     {
         if (!GodotOpenALEnabled)
@@ -22,12 +21,15 @@ public partial class ALSource3D : Node3D
         else
             filter.SetGain(gain, gainHF);
 
+
         // For reverb in other rooms, we send the sound's clear audio to the reverb effect,
         //  then reduce the reverb effect's gain to make it muffled
         var reverbFilter = fullReverb ? fullFilter : filter;
 
+        var directFilter = ALManager.instance.ReverbOnly ? silenceFilter : filter;
+
         foreach (var s in sources)
-            s.SetFilter(effect, filter, reverbFilter);
+            s.SetFilter(effect, directFilter, reverbFilter);
     }
 
     bool soundNameErrorLogged = false;

@@ -85,6 +85,7 @@ public unsafe partial class ALManager : Node
     Vector3 _listenerVelocity;
     float _listenerPitch;
     float _listenerYaw;
+    bool _reverbOnly;
 
     [Export]
     public Vector3 ListenerPosition
@@ -147,6 +148,13 @@ public unsafe partial class ALManager : Node
     {
         get => _speedOfSound;
         set => UpdateProperty(ref _speedOfSound, MathF.Max(0, value), SetSpeedOfSound);
+    }
+
+    [Export]
+    public bool ReverbOnly
+    {
+        get => _reverbOnly;
+        set => UpdateProperty(ref _reverbOnly, value, SetReverbOnly);
     }
 
     [Export]

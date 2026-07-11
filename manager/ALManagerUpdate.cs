@@ -30,6 +30,7 @@ public unsafe partial class ALManager
     public void SetDistanceModel(ALDistanceModel model) => AL.DistanceModel((int)model);
     public void SetMetersPerUnit(float metersPerUnit) => AL.Listenerf(AL.AL_METERS_PER_UNIT, metersPerUnit);
     public void SetSpeedOfSound(float speedOfSound) => AL.SpeedOfSound(speedOfSound);
+    public void SetReverbOnly(bool value) => _reverbOnly = value;
 
     void SetMicrophoneEnabled(bool enabled)
     {
