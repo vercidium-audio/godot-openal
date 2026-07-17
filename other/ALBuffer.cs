@@ -81,6 +81,7 @@ public class ALBuffer
             return false;
         }
 
+        // TODO - this throws when playing too many sounds at once
         var sourceID = AL.GenSource();
 
         // Out of memory

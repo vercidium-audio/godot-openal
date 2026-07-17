@@ -70,7 +70,15 @@ public partial class ALSource3D : Node3D
         source.SetPitch(Pitch);
         source.SetLooping(Looping);
 
-        source.SetFilter(effect, filter, filter);
+
+        var directFilter = ALManager.instance.ReverbOnly ? silenceFilter : filter;
+
+        // For reverb in other rooms, we send the sound's clear audio to the reverb effect,
+        //  then reduce the reverb effect's gain to make it muffled
+        var fullReverb = true;
+        var reverbFilter = fullReverb ? fullFilter : filter;
+
+        source.SetFilter(effect, directFilter, reverbFilter);
 
         source.Play();
         sources.Add(source);
